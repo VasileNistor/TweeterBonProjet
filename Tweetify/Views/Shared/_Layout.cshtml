@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta HTTP-EQUIV="Pragma" CONTENT="no-cache">
+    <title>@ViewData["Title"] - Tweetify</title>
+    <environment include="Development">
+        <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
+        <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+        <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/font/octicons.min.css'>
+    </environment>
+    <environment exclude="Development">
+        <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css'>
+        <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'>
+        <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/octicons/4.4.0/font/octicons.min.css'>
+    </environment>
+    <link rel='stylesheet prefetch' href='~/css/site.css'>
+</head>
+<body>
+    <nav class="navbar navbar-toggleable-md fixed-top">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse container">
+            <!-- Navbar navigation links -->
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index"><i class="octicon octicon-home" aria-hidden="true"></i> Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="octicon octicon-inbox"></i> Messages</a>
+                </li>
+            </ul>
+            <!-- END: Navbar navigation links -->
+            
+            <!-- Navbar Tweet button -->
+           
+        </div>
+    </nav>
+
+    <partial name="_CookieConsentPartial" />
+
+    <div class="main-container">
+        <!-- Profile background large image -->
+        <div class="row profile-background">
+            <div class="container">
+                <!-- User main avatar -->
+                <div class="avatar-container">
+                    <div class="avatar">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <nav class="navbar profile-stats">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+
+                    </div>
+                    <div class="col-6">
+                        <ul>
+                            <li class="profile-stats-item-active">
+                                <a>
+                                    <span class="profile-stats-item profile-stats-item-label">Tweets</span>
+                                    <span class="profile-stats-item profile-stats-item-number"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    <span class="profile-stats-item profile-stats-item-label">Following</span>
+                                    <span class="profile-stats-item profile-stats-item-number"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    <span class="profile-stats-item profile-stats-item-label">Followers</span>
+                                    <span class="profile-stats-item profile-stats-item-number"></span>
+                                </a>
+                            </li>
+                            <li>
+                                <a>
+                                    <span class="profile-stats-item profile-stats-item-label">Likes</span>
+                                    <span class="profile-stats-item profile-stats-item-number"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col">
+
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="container main-content">
+            <div class="row">
+                <div class="col profile-col">
+                    <!-- Left column -->
+                    <div class="profile-header">
+                        <!-- Header information -->
+                        <h3 class="profile-fullname"><a>Username? <a></h3>
+                        <h2 class="profile-element"><a>@@Handle</a></h2>
+                        <a class="profile-element profile-website" hrerf=""><i class="octicon octicon-link"></i>&nbsp;estiam.com</a>
+                        <a class="profile-element profile-website" hrerf=""><i class="octicon octicon-location"></i>&nbsp;Les Lilas, Paris</a>
+                        <!--<h2 class="profile-element"><i class="octicon octicon-calendar"></i>Joined XXXX</h2>
+                            <button class="btn btn-search-bar tweet-to-btn">Tweet to XXX YYYY </button>
+                            <a class="profile-element profile-website" hrerf=""><i class="octicon octicon-file-media"></i>XXXXX</a> -->
+                        <!-- End: image grid -->
+                    </div>
+                </div>
+                <!-- End; Left column -->
+                <!-- Center content column -->
+                <div class="col-6">
+                   @RenderBody()
+                    
+                    <ol class="tweet-list">
+                    </ol>
+                    <!-- End: tweet list -->
+                </div>
+                <!-- End: Center content column -->
+                <div class="col right-col">
+                    <div class="content-panel">
+                        <div class="panel-header">
+                            <h4>Who to follow</h4><small><a href="">Refresh</a></small><small><a href="">View all</a></small>
+                        </div>
+                        <!-- Who to Follow panel -->
+                        <div class="panel-content">
+                            <!--Follow list -->
+                            <ol class="tweet-list">
+                            </ol>
+                            <!--END: Follow list -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src='https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js'></script>
+
+    @RenderSection("Scripts", required: false)
+
+
+    <footer>
+    <center><bold>Source : Sion Genders </bold></center>
+    </footer>
+</body>
+</html>
