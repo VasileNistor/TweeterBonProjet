@@ -2,4 +2,18 @@
 @{
 
 }
+<center>
+    <form method="post" class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" name="Content" placeholder="Exprimez vous...">
+        <button class="btn btn-search-bar" type="submit">Tweeter</button>
+    </form>
+</center>
 
+@foreach (var t in ViewData["tweetbox"] as List<Tweet>)
+{
+    <div class="jumbotron">
+        <h1>Tweeted by @t.Author.Username</h1>
+        <p>@t.Content</p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">Liker</a></p>
+    </div>
+}

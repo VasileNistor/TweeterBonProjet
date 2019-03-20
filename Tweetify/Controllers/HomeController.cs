@@ -32,6 +32,27 @@ namespace Tweetify.Controllers
             return View();
         }
 
+        [HttpPost]
+        public async Task<ActionResult> Index(Tweet t)
+        {
+            try
+            {
+                using (var context = new TweetifyContext())
+                {
+                    t.Author = context.Users.FirstOrDefault(x => x.Id == HttpContext.Session.GetInt32("UserId"));
+                    await context.Tweets.AddAsync(t);
+                    await context.SaveChangesAsync();
+                }
+                return RedirectToAction(nameof(Index));
+
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
